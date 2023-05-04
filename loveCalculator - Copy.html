@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+    <script src="./bootstrap-5.2.2-dist/js/bootstrap.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* outline: 1px solid gold; */
+    }
+    body{
+        background-image: url(./couple.jpg); 
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        background-attachment: fixed;
+    }
+    .pickUser {
+        border-radius: 50px;
+        margin-bottom: 5px;
+    }
+    .pickUser img{
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 50%;
+        width: 50px;
+        padding: 2px;
+        box-shadow: 5px 2px 5px rgb(0, 0, 0);
+    }
+    .pickUser img:hover{
+        border: 3px outset rgb(218, 218, 218);
+    }
+
+    #pickUserMe img{
+        border: 1px solid white;
+        border-radius: 50%;
+        width: 60px;
+        margin-left: 20px;
+        padding: 2px;
+        box-shadow: 5px 1px 15px rgb(0, 0, 0);
+    }
+    .row p{
+        text-align: center;
+        color: #000;
+        /* font-weight: 100; */
+        font-size: 1.1em;
+        letter-spacing: 2px;
+        filter: drop-shadow(0px 2px 2px rgb(24, 21, 24));
+        background-color: #fff;
+        border-radius: 4px;
+    }
+    #displayUser1 {
+        width: 150px; 
+        height: 150px;
+        border: 3px solid yellow;
+        border-radius: 50%;
+        padding: 1px;
+        color: rgb(191, 191, 191);
+        text-align: center;
+        font-size: 6em;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+    }
+    #displayUser1 img{
+        /* border: 1px solid yellow; */
+        border-radius: 50%;
+        width: 130px;
+        padding: 1px;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+    }
+    #displayUser2 {
+        width: 150px; 
+        height: 150px;
+        border: 3px solid orangered;
+        border-radius: 50%;
+        padding: 1px;
+        color: rgb(191, 191, 191);
+        text-align: center;
+        font-size: 6em;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+        /* height: 10px; */
+    }
+    #displayUser2 img{
+        /* border: 1px solid orangered; */
+        border-radius: 50%;
+        width: 130px;
+        padding: 1px;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+        color:rgb(4, 254, 25) ;
+    }
+    #displayUserMiddle img{
+        width: 50px;
+        /* padding: 20px; */
+    }
+
+    #displayUser11 {
+        width: 150px; 
+        height: 150px;
+        border: 3px solid yellow;
+        border-radius: 50%;
+        padding: 1px;
+        color: rgb(191, 191, 191);
+        text-align: center;
+        font-size: 6em;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+    }
+    #displayUser11 img{
+        /* border: 1px solid yellow; */
+        border-radius: 50%;
+        width: 130px;
+        padding: 1px;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+    }
+    #displayUser21 {
+        width: 150px; 
+        height: 150px;
+        border: 3px solid orangered;
+        border-radius: 50%;
+        padding: 1px;
+        color: rgb(191, 191, 191);
+        text-align: center;
+        font-size: 6em;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+        /* height: 10px; */
+    }
+    #displayUser21 img{
+        /* border: 1px solid orangered; */
+        border-radius: 50%;
+        width: 130px;
+        padding: 1px;
+        box-shadow: 1px 2px 9px rgb(0, 0, 0);
+        color:rgb(4, 254, 25) ;
+    }
+    #displayUserMiddle2 img{
+        width: 50px;
+        /* padding: 20px; */
+    }
+
+    #disp {
+        border-radius: 10px;
+    }
+    #disp {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    5% {
+        color: rgb(158, 0, 89);
+    }
+    20% {
+        color: rgb(255, 0, 84);
+    }
+    30% {
+        color: rgb(255, 84, 0);
+    }
+    40% {
+        color: rgb(255, 189, 0);
+    }
+    50% {
+        color: rgb(137, 252, 0);
+    }
+    60% {
+        color: rgb(239, 71, 231);
+    }
+    70% {
+        color: rgb(64, 249, 252);
+    }
+    80% {
+        color: rgb(239, 18, 18);
+    }
+    90% {
+        color: rgb(9, 255, 0);
+    }
+    100% {
+        color: rgb(0, 34, 255);
+    }
+}
+</style>
+<body onload="gameMusic()">
+<center >
+    <button type="button" class="btn btn-dark m-3 text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Select Your Avatar
+    </button>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="background-color: #fff; border-radius: 10px;">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" style="animation: blinker 2s linear infinite;">Select Your Avatar 🔞</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body border px-3  shadow-lg" style="background-image: url(./couple.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" id="">
+                <!-- <div class=""> -->
+                    <center>
+                        <div class="row shadow-lg" style="background-color: rgba(0, 0, 0, 0.644);">
+                            <p class="">Select <span style="color: yellow;">yellow</span> avater for yourself and <span style="color: orange;">orange</span> for your lover.</p>
+                            <div id="pickUser1" class="pickUser col-4 col-md-2" onclick="opop(pickUser1.innerHTML)"><img src="./user1.png" alt=""></div>
+                            <div id="pickUser2" class="pickUser col-4 col-md-2" onclick="apap(pickUser2.innerHTML)"><img src="./user2.png" alt=""></div>
+                            <div id="pickUser3" class="pickUser col-4 col-md-2" onclick="opop(pickUser3.innerHTML)"><img src="./user3.png" alt=""></div>
+                            <div id="pickUser4" class="pickUser col-4 col-md-2" onclick="apap(pickUser4.innerHTML)"><img src="./user4.png" alt=""></div>
+                            <div id="pickUser5" class="pickUser col-4 col-md-2" onclick="opop(pickUser5.innerHTML)"><img src="./user5.png" alt=""></div>
+                            <div id="pickUser6" class="pickUser col-4 col-md-2" onclick="apap(pickUser6.innerHTML)"><img src="./user6.png" alt=""></div>
+                            <div id="pickUser7" class="pickUser col-4 col-md-2" onclick="apap(pickUser7.innerHTML)"><img src="./user7.png" alt=""></div>
+                            <div id="pickUser8" class="pickUser col-4 col-md-2" onclick="opop(pickUser8.innerHTML)"><img src="./user8.png" alt=""></div>
+                            <div id="pickUser9" class="pickUser col-4 col-md-2" onclick="apap(pickUser9.innerHTML)"><img src="./user9.png" alt=""></div>
+                            <div id="pickUser10" class="pickUser col-4 col-md-2" onclick="opop(pickUser10.innerHTML)"><img src="./user10.png" alt=""></div>
+                            <div id="pickUser11" class="pickUser col-4 col-md-2" onclick="apap(pickUser11.innerHTML)"><img src="./user11.png" alt=""></div>
+                            <div id="pickUser12" class="pickUser col-4 col-md-2" onclick="opop(pickUser12.innerHTML)"><img src="./user12.png" alt=""></div>
+                            <button class="col btn btn-warning w-50" onclick="pickUserAvatar()">💕 Random 💕</button>
+                    </center>
+                    <center>
+                        <div class="row justify-content-evenly align-items-center mt-3">
+                            <div id="displayUser11" class="col-4 col-md-4 display-1">
+                                <img src="./qq.gif" alt="">
+                            </div>
+                            <div style="width: 50px; padding: 0px;" id="displayUserMiddle" class="col-4 col-md-4">
+                                <img id="sleepAndActive2" src="./love-sleep.png" alt="">
+                            </div>
+                            <div id="displayUser21" class="col-4 col-md-4 display-1">
+                                <img src="./qq.gif" alt="">
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</center>
+    <!-- <nav class="navbar p-1 shadow navbar-expand-sm m-2">
+        <button class="bg-light navbar-toggler my-3" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="border px-3 collapse shadow-lg navbar-collapse" id="myNavbar">
+            <center>
+                <div class="row shadow-lg ">
+                    <p class="">Select Your Avatar 🔞</p>
+                    <div id="pickUser1" class="pickUser col-4 col-md-2" onclick="opop(pickUser1.innerHTML)"><img src="./user1.png" alt=""></div>
+                    <div id="pickUser2" class="pickUser col-4 col-md-2" onclick="apap(pickUser2.innerHTML)"><img src="./user2.png" alt=""></div>
+                    <div id="pickUser3" class="pickUser col-4 col-md-2" onclick="opop(pickUser3.innerHTML)"><img src="./user3.png" alt=""></div>
+                    <div id="pickUser4" class="pickUser col-4 col-md-2" onclick="apap(pickUser4.innerHTML)"><img src="./user4.png" alt=""></div>
+                    <div id="pickUser5" class="pickUser col-4 col-md-2" onclick="opop(pickUser5.innerHTML)"><img src="./user5.png" alt=""></div>
+                    <div id="pickUser6" class="pickUser col-4 col-md-2" onclick="apap(pickUser6.innerHTML)"><img src="./user6.png" alt=""></div>
+                    <div id="pickUser7" class="pickUser col-4 col-md-2" onclick="apap(pickUser7.innerHTML)"><img src="./user7.png" alt=""></div>
+                    <div id="pickUser8" class="pickUser col-4 col-md-2" onclick="opop(pickUser8.innerHTML)"><img src="./user8.png" alt=""></div>
+                    <div id="pickUser9" class="pickUser col-4 col-md-2" onclick="apap(pickUser9.innerHTML)"><img src="./user9.png" alt=""></div>
+                    <div id="pickUser10" class="pickUser col-4 col-md-2" onclick="opop(pickUser10.innerHTML)"><img src="./user10.png" alt=""></div>
+                    <div id="pickUser11" class="pickUser col-4 col-md-2" onclick="apap(pickUser11.innerHTML)"><img src="./user11.png" alt=""></div>
+                    <div id="pickUser12" class="pickUser col-4 col-md-2" onclick="opop(pickUser12.innerHTML)"><img src="./user12.png" alt=""></div>
+                    <button class="col btn btn-warning w-50" onclick="pickUserAvatar()">💕 Random 💕</button>
+                </div>
+            </center>
+        </div>
+    </nav> -->
+    <center class="mt-5" >
+        <div class="row justify-content-evenly align-items-center">
+            <div id="displayUser1" class="col-4 col-md-4 display-1">
+                <img src="./qq.gif" alt="">
+            </div>
+            <div style="width: 50px; padding: 0px;" id="displayUserMiddle" class="col-4 col-md-4">
+                <img id="sleepAndActive" src="./love-sleep.png" alt="">
+            </div>
+            <div id="displayUser2" class="col-4 col-md-4 display-1">
+                <img src="./qq.gif" alt="">
+            </div>
+        </div>
+    </center>
+    <center>
+        <div class="row mt-3 mx-1 justify-content-evenly">
+            <div class="col-6">
+                <input class="form-control my-2 p-2 " type="text" placeholder="😍Player Name😍" id="playerName" style="text-align: center; font-size: 1.3em; animation: blinker 2s linear infinite;">
+            </div>
+            <div class="col-6">
+                <input class="form-control my-2 p-2" type="text" placeholder="😍Lover Name😍" id="lover" style="text-align: center; font-size: 1.3em; animation: blinker 2s linear infinite;">
+            </div>
+        </div>
+            <button class="p-3 btn btn-dark mt-3" style="font-size: 2em; color: rgb(170, 5, 5); letter-spacing: 1px; animation: blinker 4s linear infinite;" onclick="Calculate()">🙈 💗 Calculate 💗 🙈</button>
+            <div class=" shadow m-3 p-1 border border- bg-secondary" id="disp">
+                <span class="display-1">💌  💌  💌</span>
+            </div>
+        </center>
+    
+    <script>
+        gameMusic()
+        function gameMusic() {
+            var music = new Audio("simple-piano-melody-9834.mp3");
+            music.play()
+        }
+        function opop(avatarClicked) {
+           
+            displayUser1.innerHTML = avatarClicked
+            displayUser11.innerHTML = avatarClicked
+            // pickUserAvatar()
+            }
+        function apap(avatarClicked2) {
+            displayUser2.innerHTML = avatarClicked2
+            displayUser21.innerHTML = avatarClicked2
+            pickUserAvatar()
+        }
+       
+                function pickUserAvatar() {
+                    sleepAndActive.src = src='love-active.png'
+                    sleepAndActive2.src = src='love-active.png'
+                }
+                // pickUserAvatar()
+
+
+
+
+                 // var myDate = new Date()
+        // console.log(myDate)
+
+        function Calculate() {
+            var yourName = playerName.value;
+            var yourLoversName = lover.value;
+            var reject = new Audio("DL6NBR8-funny-jumper.mp3");
+            var  poorLaugh = new Audio("mixkit-crowd-laugh-424.wav");
+            var  excellent = new Audio("mixkit-cartoon-positive-sound-2255.wav");
+            var  lessThanSeventy = new Audio("mixkit-trombone-disappoint-744.wav");
+            var  lessThanFifty = new Audio("mixkit-sad-game-over-trombone-471.wav");
+            var  lessThanThirty = new Audio("mixkit-cartoon-voice-laugh-343.wav");
+            var  lessThanTwenty = new Audio("mixkit-laughing-cartoon-creature-414.wav");
+            var  lessThanTen = new Audio("mixkit-crowd-laugh-424.wav");
+            var randomNumber = Math.round(Math.random()*100)
+            
+        
+            if (yourLoversName == "" || yourName == "") {
+                disp.innerHTML = `
+                <h1 class="display-6">All inputs must not be empty! ✖✖✖ </h1>
+                    `
+                reject.play()
+            }else if (randomNumber >= 70) {
+                disp.innerHTML = `
+                <h1 class="display-6"> <b style="font-size:1em;"> ✔✔✔</b>
+                    <br>
+                        <p style="color:rgb(4, 254, 25);">You and ${yourLoversName} match</P> 
+                        <b style="font-size:1em;">${randomNumber}%</b>
+                        <p style="color:white;">You'll not want to lose ${yourLoversName}</P> 
+                    </h1>
+                `
+                excellent.play()
+            }else if (randomNumber <= 70 && randomNumber > 50) {
+                disp.innerHTML = `
+                <h1 class="display-6"> <b style="font-size:1em;"> ⚠⚠⚠</b>
+                    <br>
+                        <p style="color:yellow;">You and ${yourLoversName} match</P> 
+                        <b style="font-size:1em;">${randomNumber}%</b>
+                        <p style="color:white;">${yourName}!! Think Twice... No talk say I no warn you o.</P> 
+                    </h1>
+                `
+                lessThanSeventy.play()
+            }else if (randomNumber <= 50 && randomNumber >30) {
+                    disp.innerHTML = `
+                    <h1 class="display-6"> <b style="font-size:1em;"> 😈😈😈</b>
+                        <br>
+                            <p style="color:yellow;">You and ${yourLoversName} match</P> 
+                            <b style="font-size:1em;">${randomNumber}%</b>
+                            <p style="color:white;">Don't trust ${yourLoversName} E go shock you.</P> 
+                        </h1>
+                    `
+                    lessThanFifty.play()
+            }else if (randomNumber <= 30 && randomNumber >20) {
+                    disp.innerHTML = `
+                    <h1 class="display-6"> <b style="font-size:1em;"> 😆😆😆</b>
+                        <br>
+                            <p style="color:red;">You and ${yourLoversName} match</P> 
+                            <b style="font-size:1em;">${randomNumber}%</b>
+                            <p style="color:white;">Scam‼ dey plan your Japa.</P> 
+                        </h1>
+                    `
+                    lessThanThirty.play()
+            }else if (randomNumber <= 20 && randomNumber >10) {
+                    disp.innerHTML = `
+                    <h1 class="display-6"> <b style="font-size:1em;">🚩🚩🚩</b>
+                        <br>
+                            <p style="color:red;">You and ${yourLoversName} match</P> 
+                            <b style="font-size:1em;">${randomNumber}%</b>
+                            <p style="color:white;">RED FLAG 😁😁 Na bastard you wan marry.</P> 
+                        </h1>
+                    `
+                    lessThanTwenty.play()
+            }else if (randomNumber <= 10) {
+                    disp.innerHTML = `
+                    <h1 class="display-6"> <b style="font-size:1em;"> 😀😀😁</b>
+                        <br>
+                            <p style="color:red;">You and ${yourLoversName} match</P> 
+                            <b style="font-size:1em;">${randomNumber}%</b>
+                            <p style="color:white;">You go soon chop breakfast</P> 
+                        </h1>
+                    `
+                    lessThanTen.play()
+            }
+    }
+    
+   
+            // var a = name.innerHTML;
+            // if (randomNumber >= 1)
+            // disp.innerHTML = `<h1> Yes`
+            // }
+        
+    </script>
+</body>
+</html>
